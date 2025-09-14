@@ -3,10 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { Product } from '../product';
 import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../product.service';
+import { ReviewList } from '../../reviews/review-list/review-list';
 
 @Component({
   selector: 'app-product-selection',
-  imports: [FormsModule, CurrencyPipe],
+  imports: [FormsModule, CurrencyPipe, ReviewList],
   templateUrl: './product-selection.html',
   styleUrl: './product-selection.css',
 })
@@ -14,7 +15,7 @@ export class ProductSelection {
   pageTitle = 'Product Selection';
   private productService = inject(ProductService);
 
-  selectedProduct = signal<Product | undefined>(undefined);
+  selectedProduct = this.productService.selectedProduct;
   quantity = linkedSignal({
     source: this.selectedProduct,
     computation: (p) => 1,
