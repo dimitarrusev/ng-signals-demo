@@ -1,0 +1,21 @@
+.qtyButton {
+  background-color: #f15b2a;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  height: 28px;
+  width: 24px;
+}
+
+.qtyButtonLeft {
+  float: left;
+  margin-right: 2px;
+}
+
+.qtyButtonRight {
+  /* float: right; */
+  margin-left: 2px;
+}

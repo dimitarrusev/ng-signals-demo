@@ -45,9 +45,8 @@
         <label for="quantity">Quantity:</label>
       </div>
       <div class="cellRight">
-        <button class="qtyButton qtyButtonLeft" (click)="onDecrease()">-</button>
-        <input class="quantityInput" id="quantity" type="number" [(ngModel)]="quantity" />
-        <button class="qtyButton qtyButtonRight" (click)="onIncrease()">+</button>
+        <app-quantity-control [value]="quantity()" (valueChange)="quantity.set($event)">
+        </app-quantity-control>
       </div>
     </div>
 

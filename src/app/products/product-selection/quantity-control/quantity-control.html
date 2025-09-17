@@ -1,0 +1,11 @@
+<div class="inputContainer">
+  <button class="qtyButton qtyButtonLeft" (click)="dec()">-</button>
+  <input
+    class="quantityInput"
+    id="quantity"
+    type="number"
+    [value]="value()"
+    (input)="manual($event.target.value)"
+  />
+  <button class="qtyButton qtyButtonRight" (click)="inc()">+</button>
+</div>

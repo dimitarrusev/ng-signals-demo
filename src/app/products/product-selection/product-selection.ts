@@ -4,10 +4,11 @@ import { Product } from '../product';
 import { CurrencyPipe } from '@angular/common';
 import { ProductService } from '../product.service';
 import { ReviewList } from '../../reviews/review-list/review-list';
+import { QuantityControl } from './quantity-control/quantity-control';
 
 @Component({
   selector: 'app-product-selection',
-  imports: [FormsModule, CurrencyPipe, ReviewList],
+  imports: [FormsModule, CurrencyPipe, QuantityControl, ReviewList],
   templateUrl: './product-selection.html',
   styleUrl: './product-selection.css',
 })
