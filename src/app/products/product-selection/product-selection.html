@@ -50,10 +50,20 @@
       </div>
     </div>
 
-    <label class="demoToggle">
-      <input type="checkbox" [checked]="useLazyMode()" (change)="onToggleLazy($event)" />
-      Use lazy evaluation
-    </label>
+    <!-- Lazy Mode Toggle -->
+    <div class="row">
+      <div class="cellFull" style="border: 2px solid green; border-radius: 4px">
+        <label>
+          <input type="checkbox" [checked]="useLazyMode()" (change)="onToggleLazy($event)" />
+          Use lazy evaluation: only recalculate the total when needed
+        </label>
+        <p class="helper-text">
+          Console:<br />
+          &bull; <code>quantity X</code> &rarr; appears every time the quantity changes<br />
+          &bull; <code>[lazyTotal] recompute</code> &rarr; appears only when lazy mode is ON
+        </p>
+      </div>
+    </div>
 
     <!-- Total -->
     <div class="row">

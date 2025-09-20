@@ -12,6 +12,19 @@
   padding: 0 0 20px 0;
 }
 
+.lazy-eval-toggle {
+  display: contents;
+  border: 2px solid green;
+  border-radius: 4px;
+}
+
+.helper-text {
+  font-size: 0.85em;
+  color: #666;
+  margin: 4px 0 0 24px;
+  font-style: italic;
+}
+
 .grid {
   align-items: center;
   display: grid;
