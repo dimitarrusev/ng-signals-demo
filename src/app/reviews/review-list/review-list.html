@@ -1,27 +1,26 @@
 <div class="container">
-  @if (reviews().length) {
+  @if (reviewService.reviews().length) {
   <table>
     <caption>
       Product Reviews
     </caption>
     <thead>
       <tr>
+        <th>Username</th>
         <th>Title</th>
         <th>Review</th>
-        <th>Username</th>
+        <th>Helpful</th>
       </tr>
     </thead>
     <tbody>
-      @for (review of reviews(); track review.id) {
+      @for (review of reviewService.reviews(); track review.id) {
       <tr>
+        <td>{{ review.userName }}</td>
+        <td>{{ review.title }}</td>
+        <td>{{ review.text }}</td>
         <td>
-          {{ review.title }}
-        </td>
-        <td>
-          {{ review.text }}
-        </td>
-        <td>
-          {{ review.userName }}
+          <button class="helpfulButton" (click)="onHelpful(review.id)">👍</button>
+          {{ review.helpfulCount }}
         </td>
       </tr>
       }

@@ -8,8 +8,11 @@ import { ReviewService } from '../review.service';
   styleUrl: './review-list.css',
 })
 export class ReviewList {
-  private reviewService = inject(ReviewService);
+  reviewService = inject(ReviewService);
 
-  reviews = this.reviewService.reviewsResource.value;
   isLoading = this.reviewService.reviewsResource.isLoading;
+
+  onHelpful(id: number) {
+    this.reviewService.voteHelpful(id);
+  }
 }

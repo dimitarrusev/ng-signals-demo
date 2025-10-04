@@ -8,6 +8,7 @@ export class ReviewData {
       userName: 'jackharkness',
       title: 'Works great',
       text: "I've beat every level faster with this controller",
+      helpfulCount: 0,
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ export class ReviewData {
       userName: 'thor364',
       title: "Didn't work as I expected",
       text: 'I summon this hammer, and it does not heed my call',
+      helpfulCount: 0,
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ export class ReviewData {
       userName: 'allthumbs',
       title: 'Dangerous!',
       text: 'I almost injured myself with this product',
+      helpfulCount: 0,
     },
     {
       id: 4,
@@ -29,6 +32,7 @@ export class ReviewData {
       userName: 'mom42',
       title: 'Great for the kiddos',
       text: 'My kids love to play with this cart',
+      helpfulCount: 0,
     },
     {
       id: 5,
@@ -36,6 +40,7 @@ export class ReviewData {
       userName: 'theoden',
       title: 'Now for wrath. Now for ruin',
       text: 'This hammer (and a dinner bell) worked even better than a horn for drawing attention',
+      helpfulCount: 0,
     },
     {
       id: 6,
@@ -43,6 +48,7 @@ export class ReviewData {
       userName: 'glamdring',
       title: 'This was no foe-hammer',
       text: 'Product was much smaller than expected',
+      helpfulCount: 0,
     },
     {
       id: 7,
@@ -50,6 +56,7 @@ export class ReviewData {
       userName: 'grima',
       title: 'Nothing but a herald of woe',
       text: 'I played no better with this controller than my old one',
+      helpfulCount: 0,
     },
     {
       id: 8,
@@ -57,6 +64,7 @@ export class ReviewData {
       userName: 'hama',
       title: 'Has no evil purpose',
       text: 'This rake is worthy of honor',
+      helpfulCount: 0,
     },
     {
       id: 9,
@@ -64,6 +72,7 @@ export class ReviewData {
       userName: 'hama',
       title: 'More than a tool',
       text: 'The rake in the hand of a wizard may be more than a tool for the garden',
+      helpfulCount: 0,
     },
     {
       id: 10,
@@ -71,6 +80,7 @@ export class ReviewData {
       userName: 'eowyn',
       title: 'A necessity!',
       text: 'Those without rakes can still die upon them',
+      helpfulCount: 0,
     },
   ];
 }

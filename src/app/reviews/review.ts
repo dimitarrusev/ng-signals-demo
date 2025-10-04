@@ -4,4 +4,5 @@ export interface Review {
   userName: string;
   title: string;
   text: string;
+  helpfulCount: number;
 }
