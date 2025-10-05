@@ -1,0 +1,17 @@
+:host {
+  display: contents;
+}
+
+.helpfulButton {
+  background-color: #f15b2a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 28px;
+  width: 24px;
+}
+
+.helpfulButton:focus {
+  outline: blue auto 2px;
+}

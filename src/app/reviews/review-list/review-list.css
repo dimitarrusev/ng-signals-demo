@@ -31,13 +31,3 @@ td {
   color: #6a5449;
   vertical-align: top;
 }
-
-.helpfulButton {
-  background-color: #f15b2a;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  height: 28px;
-  width: 24px;
-}

@@ -30,15 +30,18 @@ export class ReviewService {
   });
 
   voteHelpful(id: number) {
-    const arr = this.reviews();
-    const idx = arr.findIndex((r) => r.id === id);
-    if (idx < 0) return;
+    const reviewsArr = this.reviews();
+    const reviewIndex = reviewsArr.findIndex((r) => r.id === id);
+    if (reviewIndex < 0) return;
 
-    const updated: Review = { ...arr[idx], helpfulCount: arr[idx].helpfulCount + 1 };
-    const next = [...arr];
-    next[idx] = updated;
+    const updatedReview: Review = {
+      ...reviewsArr[reviewIndex],
+      helpfulCount: reviewsArr[reviewIndex].helpfulCount + 1,
+    };
+    const updatedReviews = [...reviewsArr];
+    updatedReviews[reviewIndex] = updatedReview;
 
-    this.reviews.set(next);
+    this.reviews.set(updatedReviews);
   }
 
   eff = effect(() => console.log('loading reviews', this.reviewsResource.isLoading()));

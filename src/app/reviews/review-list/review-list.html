@@ -10,19 +10,18 @@
         <th>Title</th>
         <th>Review</th>
         <th>Helpful</th>
+        <th>Most Helpful</th>
       </tr>
     </thead>
     <tbody>
       @for (review of reviewService.reviews(); track review.id) {
-      <tr>
-        <td>{{ review.userName }}</td>
-        <td>{{ review.title }}</td>
-        <td>{{ review.text }}</td>
-        <td>
-          <button class="helpfulButton" (click)="onHelpful(review.id)">👍</button>
-          {{ review.helpfulCount }}
-        </td>
-      </tr>
+      <app-review-list-item [review]="review">
+        <ng-template let-r>
+          @if (highestHelpfulCount() > 0 && r.helpfulCount === highestHelpfulCount()) {
+          <span aria-label="Most helpful" title="Most helpful">⭐</span>
+          }
+        </ng-template>
+      </app-review-list-item>
       }
     </tbody>
   </table>

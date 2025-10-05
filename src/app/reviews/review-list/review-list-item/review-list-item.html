@@ -1,0 +1,13 @@
+<tr>
+  <td>{{ review().userName }}</td>
+  <td>{{ review().title }}</td>
+  <td>{{ review().text }}</td>
+  <td>
+    <button #helpfulBtn class="helpfulButton" (click)="onHelpful()">👍</button>
+    {{ review().helpfulCount }}
+  </td>
+  <td>
+    <ng-container *ngTemplateOutlet="mostHelpfulTpl(); context: { $implicit: review() }">
+    </ng-container>
+  </td>
+</tr>

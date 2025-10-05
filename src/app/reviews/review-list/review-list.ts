@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, effect, inject, viewChildren } from '@angular/core';
 import { ReviewService } from '../review.service';
+import { ReviewListItem } from './review-list-item/review-list-item';
 
 @Component({
   selector: 'app-review-list',
-  imports: [],
+  imports: [ReviewListItem],
   templateUrl: './review-list.html',
   styleUrl: './review-list.css',
 })
@@ -12,7 +13,17 @@ export class ReviewList {
 
   isLoading = this.reviewService.reviewsResource.isLoading;
 
-  onHelpful(id: number) {
-    this.reviewService.voteHelpful(id);
-  }
+  rows = viewChildren(ReviewListItem);
+
+  _focusFirst = effect(() => {
+    const rows = this.rows();
+    if (rows.length) rows[0].focusHelpfulButton();
+  });
+
+  highestHelpfulCount = computed(() => {
+    const reviewsArr = this.reviewService.reviews();
+    return reviewsArr.length
+      ? Math.max(...reviewsArr.map((review) => review.helpfulCount ?? 0))
+      : 0;
+  });
 }
