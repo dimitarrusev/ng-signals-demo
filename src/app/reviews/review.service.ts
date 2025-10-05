@@ -10,6 +10,8 @@ export class ReviewService {
   private reviewsUrl = 'api/reviews';
   private productService = inject(ProductService);
 
+  // HTTP resource that loads reviews for the currently selected product.
+  // automatically reruns when productId changes.
   reviewsResource = httpResource<Review[]>(
     () => {
       const p = this.productService.selectedProduct();
@@ -22,13 +24,18 @@ export class ReviewService {
     { defaultValue: [] }
   );
 
+  // signal holding the current list of reviews in memory.
+  // acts like local state that components can read/react to.
   reviews = signal<Review[]>([]);
 
-  private _sync = effect(() => {
+  // effect: whenever the resource fetches new data, update the local reviews signal.
+  // keeps reviews() in sync with the backend resource.
+  private syncReviewsEffect = effect(() => {
     const data = this.reviewsResource.value();
     if (data) this.reviews.set(data);
   });
 
+  // method to vote a review as helpful. (increments the helpful count for a given review)
   voteHelpful(id: number) {
     const reviewsArr = this.reviews();
     const reviewIndex = reviewsArr.findIndex((r) => r.id === id);
@@ -44,5 +51,9 @@ export class ReviewService {
     this.reviews.set(updatedReviews);
   }
 
-  eff = effect(() => console.log('loading reviews', this.reviewsResource.isLoading()));
+  // effect: logs whenever the loading state of reviews changes.
+  // demonstrates effects reacting to resource signals.
+  logLoadingReviewsEffect = effect(() =>
+    console.log('loading reviews', this.reviewsResource.isLoading())
+  );
 }

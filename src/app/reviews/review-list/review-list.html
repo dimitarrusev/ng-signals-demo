@@ -1,5 +1,22 @@
 <div class="container">
   @if (reviewService.reviews().length) {
+  <div style="margin-bottom: 1rem">
+    <label for="titleFilter">Filter reviews by title:</label>
+    <input
+      id="titleFilter"
+      type="text"
+      [value]="filterTitle()"
+      (input)="filterTitle.set($event.target.value)"
+    />
+    <button
+      *ngIf="filterTitle().trim().length > 0"
+      class="clearFilterBtn"
+      (click)="filterTitle.set('')"
+    >
+      Clear
+    </button>
+  </div>
+
   <table>
     <caption>
       Product Reviews
@@ -14,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (review of reviewService.reviews(); track review.id) {
+      @if (filteredReviews().length) { @for (review of filteredReviews(); track review.id) {
       <app-review-list-item [review]="review">
         <ng-template let-r>
           @if (highestHelpfulCount() > 0 && r.helpfulCount === highestHelpfulCount()) {
@@ -22,6 +39,10 @@
           }
         </ng-template>
       </app-review-list-item>
+      } } @else if (filterTitle().trim()) {
+      <tr>
+        <td colspan="5">No reviews match the filter</td>
+      </tr>
       }
     </tbody>
   </table>

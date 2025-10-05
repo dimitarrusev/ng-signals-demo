@@ -31,3 +31,14 @@ td {
   color: #6a5449;
   vertical-align: top;
 }
+
+.clearFilterBtn {
+  margin-left: 5px;
+  background-color: #f15b2a;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  height: 28px;
+}
